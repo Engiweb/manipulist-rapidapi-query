@@ -1,0 +1,60 @@
+{
+  "name": "manipulist-rapidapi-query",
+  "version": "1.0.0",
+  "description": "Query the Manipulist.com text extraction and manipulation API using your RapidAPI api key",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/Engiweb/manipulist-rapidapi-query",
+  "keywords": [
+    "manipulist",
+    "rapidapi",
+    "api query",
+    "query library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Engiweb/manipulist-rapidapi-query.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Engiweb/manipulist-rapidapi-query/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Christian Carestia",
+    "email": "info@engiweb.com",
+    "url": "https://engiweb.com"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/**/* --fix",
+    "pretest": "npm run lint",
+    "test": "jest",
+    "test:cov": "npm run test -- --coverage",
+    "test:watch": "npm run test -- --watchAll --notify",
+    "types:check": "tsc --noEmit",
+    "types:watch": "npm run types:check -- --watch"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "husky": "^4.2.5",
+    "jest": "^25.4.0",
+    "prettier": "^2.3.2",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "form-data": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test",
+      "post-commit": ""
+    }
+  }
+}
