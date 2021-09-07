@@ -12,7 +12,7 @@ var integersListRangeChecker = function (_a) {
         .toString()
         .split(/[,|-]/)
         .map(function (num) { return parseInt(num); });
-    if (paramIntegers.length < 1) {
+    if (paramIntegers.includes(NaN) || paramIntegers.length < 1) {
         response.message = message;
         return response;
     }

@@ -1,5 +1,5 @@
-import { ManipulistMessage } from '../@types/types'
-import { TOOLS } from './constants/tools'
+import { ManipulistMessage } from '../../@types/types'
+import { TOOLS } from '../constants/tools'
 import validateParam from './validateParam'
 
 type Params = {

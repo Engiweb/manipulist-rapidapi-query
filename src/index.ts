@@ -1,4 +1,4 @@
-import callManipulistApi from './callManipulistApi'
+import callManipulistApi from './query/callManipulistApi'
 
 export {
   FILE_TEXT,

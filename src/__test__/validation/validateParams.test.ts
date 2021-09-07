@@ -1,5 +1,5 @@
 /* eslint no-console:0 */
-import validateParams from '../validateParams'
+import validateParams from '../../validation/validateParams'
 
 describe('validateParams', () => {
   it('should return ok for trim-lines', () => {

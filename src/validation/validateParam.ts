@@ -1,4 +1,4 @@
-import { ManipulistMessage } from '../@types/types'
+import { ManipulistMessage } from '../../@types/types'
 import integersListRangeChecker from './integersListRangeChecker'
 
 type CheckTypeParams = {

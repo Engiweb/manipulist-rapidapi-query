@@ -1,5 +1,5 @@
 /* eslint no-console:0 */
-import validateParam from '../validateParam'
+import validateParam from '../../validation/validateParam'
 
 describe('validateParam', () => {
   it('should return ok if no toolParam', () => {

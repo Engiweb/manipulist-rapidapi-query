@@ -1,4 +1,4 @@
-import { ManipulistMessage } from '../@types/types';
+import { ManipulistMessage } from '../../@types/types';
 declare type CheckTypeParams = {
     name: string;
     param: string | number | undefined;

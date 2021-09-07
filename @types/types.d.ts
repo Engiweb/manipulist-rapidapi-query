@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios'
 
 export type ManipulistApi = {
-  url: string
+  endpoint: string
   apiKey: string | undefined
   input?: string | undefined
   file?: unknown | undefined
@@ -14,13 +14,10 @@ export type ManipulistMessage = {
   message: string
 }
 
-export type ManipulistError = {
-  error: string | AxiosError
-}
-
 export type ManipulistResponse = {
   message?: string
   data?: string
+  error?: string | AxiosError
 }
 
 export type Tool = {

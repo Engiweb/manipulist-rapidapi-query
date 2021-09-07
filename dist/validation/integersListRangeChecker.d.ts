@@ -1,4 +1,4 @@
-import { ManipulistMessage } from '../@types/types';
+import { ManipulistMessage } from '../../@types/types';
 declare type RangeChecker = {
     param: string | number | undefined;
     name: string;

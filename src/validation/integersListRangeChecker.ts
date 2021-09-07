@@ -1,4 +1,4 @@
-import { ManipulistMessage } from '../@types/types'
+import { ManipulistMessage } from '../../@types/types'
 
 type RangeChecker = {
   param: string | number | undefined
@@ -23,7 +23,7 @@ const integersListRangeChecker = ({
     .split(/[,|-]/)
     .map((num) => parseInt(num))
 
-  if (paramIntegers.length < 1) {
+  if (paramIntegers.includes(NaN) || paramIntegers.length < 1) {
     response.message = message
     return response
   }

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var callManipulistApi_1 = __importDefault(require("./callManipulistApi"));
+var callManipulistApi_1 = __importDefault(require("./query/callManipulistApi"));
 var endpoints_1 = require("./constants/endpoints");
 Object.defineProperty(exports, "FILE_TEXT", { enumerable: true, get: function () { return endpoints_1.FILE_TEXT; } });
 Object.defineProperty(exports, "FILE_TOOL_ADD_INCREMENTAL_NUMBER", { enumerable: true, get: function () { return endpoints_1.FILE_TOOL_ADD_INCREMENTAL_NUMBER; } });

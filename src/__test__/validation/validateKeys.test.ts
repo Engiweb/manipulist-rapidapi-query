@@ -2,12 +2,12 @@
 import {
   FILE_TOOL_ADD_INCREMENTAL_NUMBER,
   TOOL_ADD_INCREMENTAL_NUMBER,
-} from '../constants/endpoints'
-import validateKeys from '../validateKeys'
+} from '../../constants/endpoints'
+import validateKeys from '../../validation/validateKeys'
 
 describe('validateKeys', () => {
   it('should return API key missing', () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = undefined
     const input = undefined
     const file = undefined
@@ -16,7 +16,7 @@ describe('validateKeys', () => {
     const lb = undefined
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -31,7 +31,7 @@ describe('validateKeys', () => {
   })
 
   it('should return API key missing', () => {
-    const url = 'not-valid-url'
+    const endpoint = 'not-valid-endpoint'
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = undefined
     const file = undefined
@@ -40,7 +40,7 @@ describe('validateKeys', () => {
     const lb = undefined
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -56,7 +56,7 @@ describe('validateKeys', () => {
   })
 
   it('should return wrong file', () => {
-    const url = FILE_TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = FILE_TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = undefined
     const file = undefined
@@ -65,7 +65,7 @@ describe('validateKeys', () => {
     const lb = 'lf'
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -80,7 +80,7 @@ describe('validateKeys', () => {
   })
 
   it('should return wrong input', () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = undefined
     const file = undefined
@@ -89,7 +89,7 @@ describe('validateKeys', () => {
     const lb = 'lf'
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -104,7 +104,7 @@ describe('validateKeys', () => {
   })
 
   it('should return required param1', () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = 'string'
     const file = undefined
@@ -113,7 +113,7 @@ describe('validateKeys', () => {
     const lb = 'lf'
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -128,7 +128,7 @@ describe('validateKeys', () => {
   })
 
   it('should return wrong param1', () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = 'string'
     const file = undefined
@@ -137,7 +137,7 @@ describe('validateKeys', () => {
     const lb = 'lf'
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -152,7 +152,7 @@ describe('validateKeys', () => {
   })
 
   it('should return wrong param2', () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = 'string'
     const file = undefined
@@ -161,7 +161,7 @@ describe('validateKeys', () => {
     const lb = 'lf'
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -176,7 +176,7 @@ describe('validateKeys', () => {
   })
 
   it('should return wrong param2', () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = 'string'
     const file = undefined
@@ -185,7 +185,7 @@ describe('validateKeys', () => {
     const lb = 'lf'
 
     const output = validateKeys({
-      url,
+      endpoint,
       apiKey,
       input,
       file,

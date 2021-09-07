@@ -25,8 +25,9 @@
     "url": "https://engiweb.com"
   },
   "scripts": {
+    "prebuild": "rimraf dist/*",
     "build": "tsc",
-    "lint": "eslint src/**/* --fix",
+    "lint": "eslint src/**/**/* --fix",
     "pretest": "npm run lint",
     "test": "jest",
     "test:cov": "npm run test -- --coverage",
@@ -35,21 +36,24 @@
     "types:watch": "npm run types:check -- --watch"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^23.8.2",
     "husky": "^4.2.5",
-    "jest": "^25.4.0",
+    "jest": "^27.1.0",
+    "node-notifier": "^10.0.0",
     "prettier": "^2.3.2",
-    "ts-jest": "^26.1.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.5",
     "typescript": "^3.8.3"
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "form-data": "^4.0.0"
+    "form-data": "^4.0.0",
+    "node-fetch": "^3.0.0"
   },
   "husky": {
     "hooks": {

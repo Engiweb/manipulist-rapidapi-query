@@ -1,4 +1,4 @@
-import { ManipulistMessage } from '../@types/types';
+import { ManipulistMessage } from '../../@types/types';
 declare type Params = {
     tool: string;
     param1: string | number | undefined;

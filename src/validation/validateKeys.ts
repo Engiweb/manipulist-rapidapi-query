@@ -1,10 +1,10 @@
-import { ManipulistApi, ManipulistResponse } from '../@types/types'
-import { ENDPOINTS } from './constants/endpoints'
-import { LB_OPTIONS } from './constants/tools'
+import { ManipulistApi, ManipulistResponse } from '../../@types/types'
+import { ENDPOINTS } from '../constants/endpoints'
+import { LB_OPTIONS } from '../constants/tools'
 import validateParams from './validateParams'
 
 const validateKeys = ({
-  url,
+  endpoint,
   apiKey,
   input,
   file,
@@ -18,7 +18,7 @@ const validateKeys = ({
     }
   }
 
-  if (!ENDPOINTS.includes(url)) {
+  if (!ENDPOINTS.includes(endpoint)) {
     return {
       message: `Endpoint not valid - valid endpoints are: ${ENDPOINTS.join(
         ' | '
@@ -32,7 +32,7 @@ const validateKeys = ({
     }
   }
 
-  const isFile = url.includes('/file/')
+  const isFile = endpoint.includes('/file/')
 
   if (isFile) {
     if (!file) {
@@ -48,7 +48,7 @@ const validateKeys = ({
     }
   }
 
-  const tool = url.replace('/file', '').replace('/tool/', '')
+  const tool = endpoint.replace('/file', '').replace('/tool/', '')
   const paramValidity = validateParams({
     tool,
     param1,

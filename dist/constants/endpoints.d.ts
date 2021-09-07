@@ -1,3 +1,5 @@
+export declare const MANIPULIST_RAPIDAPI_HOST = "manipulist.p.rapidapi.com";
+export declare const MANIPULIST_RAPIDAPI_BASE_URL: string;
 export declare const FILE_TEXT: string;
 export declare const FILE_TOOL_ADD_INCREMENTAL_NUMBER: string;
 export declare const FILE_TOOL_ADD_NEW_LINE: string;

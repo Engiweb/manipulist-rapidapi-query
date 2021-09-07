@@ -1,5 +1,5 @@
 /* eslint no-console:0 */
-import integersListRangeChecker from '../integersListRangeChecker'
+import integersListRangeChecker from '../../validation/integersListRangeChecker'
 
 describe('integersListRangeChecker', () => {
   it('should return false when empty', () => {
@@ -15,6 +15,17 @@ describe('integersListRangeChecker', () => {
 
   it('should return false when containing not valid char', () => {
     const param = '1,2,a-bc'
+    const name = 'param1'
+
+    const output = integersListRangeChecker({ param, name })
+
+    expect(output).toEqual({
+      message: 'param1 does not contain a valid list/range of integers',
+    })
+  })
+
+  it('should return false when containing not valid char - 2', () => {
+    const param = '1,2,1a'
     const name = 'param1'
 
     const output = integersListRangeChecker({ param, name })

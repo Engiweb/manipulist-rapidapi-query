@@ -1,19 +1,21 @@
-import axios from 'axios'
 import fs from 'fs'
 import path from 'path'
-import callManipulistApi from '../callManipulistApi'
+import callManipulistApi from '../../query/callManipulistApi'
 import {
   FILE_TOOL_ADD_INCREMENTAL_NUMBER,
   TOOL_ADD_INCREMENTAL_NUMBER,
-} from '../constants/endpoints'
+} from '../../constants/endpoints'
+import callToolApi from '../../query/callToolApi'
+import callFileApi from '../../query/callFileApi'
 
-jest.mock('axios')
+jest.mock('../../query/callToolApi')
+jest.mock('../../query/callFileApi')
 
 describe('callManipulistApi', () => {
   afterEach(() => jest.resetAllMocks())
 
   it('should return error message when params not valid', async () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = 'string'
     const file = undefined
@@ -22,7 +24,7 @@ describe('callManipulistApi', () => {
     const lb = 'lf'
 
     const output = await callManipulistApi({
-      url,
+      endpoint,
       apiKey,
       input,
       file,
@@ -34,38 +36,12 @@ describe('callManipulistApi', () => {
     expect(output).toEqual({
       message: 'param1 is not a valid integer',
     })
-  })
 
-  it('should return axios error if server down', async () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
-    const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
-    const input = 'string'
-    const file = undefined
-    const param1 = 3
-    const param2 = 'atStart'
-    const lb = 'lf'
-
-    axios.post = jest
-      .fn()
-      .mockImplementation(() => Promise.reject(new Error('server error')))
-
-    const output = await callManipulistApi({
-      url,
-      apiKey,
-      input,
-      file,
-      param1,
-      param2,
-      lb,
-    })
-
-    expect(output).toEqual({
-      error: 'server error',
-    })
+    expect(callToolApi).toBeCalledTimes(0)
   })
 
   it('should return response if string', async () => {
-    const url = TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = 'string'
     const file = undefined
@@ -73,12 +49,8 @@ describe('callManipulistApi', () => {
     const param2 = 'atStart'
     const lb = 'lf'
 
-    axios.post = jest
-      .fn()
-      .mockImplementation(() => Promise.resolve({ data: '3string' }))
-
-    const output = await callManipulistApi({
-      url,
+    await callManipulistApi({
+      endpoint,
       apiKey,
       input,
       file,
@@ -87,28 +59,29 @@ describe('callManipulistApi', () => {
       lb,
     })
 
-    expect(output).toEqual({
-      data: '3string',
+    expect(callToolApi).toHaveBeenCalledWith({
+      endpoint,
+      apiKey,
+      input,
+      param1,
+      param2,
+      lb,
     })
   })
 
   it('should return response if file', async () => {
-    const url = FILE_TOOL_ADD_INCREMENTAL_NUMBER
+    const endpoint = FILE_TOOL_ADD_INCREMENTAL_NUMBER
     const apiKey = 'longstringapikeylongstringapikeylongstringapikey'
     const input = undefined
     const file = fs.readFileSync(
-      path.join(__dirname, '../../fixtures/sample.txt')
+      path.join(__dirname, '../../../fixtures/sample.txt')
     )
     const param1 = 3
     const param2 = 'atStart'
     const lb = 'lf'
 
-    axios.post = jest
-      .fn()
-      .mockImplementation(() => Promise.resolve({ data: '3string' }))
-
-    const output = await callManipulistApi({
-      url,
+    await callManipulistApi({
+      endpoint,
       apiKey,
       input,
       file,
@@ -117,8 +90,13 @@ describe('callManipulistApi', () => {
       lb,
     })
 
-    expect(output).toEqual({
-      data: '3string',
+    expect(callFileApi).toHaveBeenCalledWith({
+      endpoint,
+      apiKey,
+      file,
+      param1,
+      param2,
+      lb,
     })
   })
 })

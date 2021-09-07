@@ -1,4 +1,7 @@
 // general
+export const MANIPULIST_RAPIDAPI_HOST = 'manipulist.p.rapidapi.com'
+export const MANIPULIST_RAPIDAPI_BASE_URL = `https://${MANIPULIST_RAPIDAPI_HOST}`
+
 const FILE = '/file'
 const TOOL = '/tool'
 
