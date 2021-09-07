@@ -19,6 +19,10 @@
     "url": "https://github.com/Engiweb/manipulist-rapidapi-query/issues"
   },
   "license": "MIT",
+  "files": [
+    "dist",
+    "@types"
+  ],
   "author": {
     "name": "Christian Carestia",
     "email": "info@engiweb.com",
