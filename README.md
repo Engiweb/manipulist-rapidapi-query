@@ -23,17 +23,7 @@ It also provide schema validation before performing the actual request to the se
 
 `npm i manipulist-rapidapi-query`
 
-3. Add your RapidAPI key as an environment variable (do not commit it!) in an .env file, e.g.:
-
-```
-  RAPID_API_KEY=INSERT_YOUR_RAPID_API_KEY                 # NodeJs
-  REACT_APP_RAPID_API_KEY=INSERT_YOUR_RAPID_API_KEY       # create-react-app
-  NEXT_PUBLIC__RAPID_API_KEY=INSERT_YOUR_RAPID_API_KEY    # NextJs
-```
-
-## Usage
-
-To use it, check out the examples for:
+3. To use it, check out the following examples (remember to include your RapidAPI key in a .env file):
 
 - [NodeJs](https://github.com/Engiweb/manipulist-rapidapi-nodejs-example)
 - [React](https://github.com/Engiweb/manipulist-rapidapi-react-example)
